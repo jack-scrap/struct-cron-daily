@@ -2,15 +2,21 @@ CC=gcc
 
 EXEC=a.out
 
-.PHONY: all
-all: $(EXEC)
+BUILDDIR=build
 
-main.o: main.c
+.PHONY: all
+all: mk_build $(EXEC)
+
+$(BUILDDIR)/main.o: main.c
 	$(CC) -c $< -o $@
 
-$(EXEC): main.o
+$(EXEC): $(BUILDDIR)/main.o
 	$(CC) $^ -o $@
+
+.PHONY: mk_build
+mk_build:
+	mkdir -p $(BUILDDIR)
 
 .PHONY: clean
 clean:
-	rm *.o $(EXEC)
+	rm $(BUILDDIR)/*.o $(EXEC)
