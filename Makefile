@@ -1,7 +1,5 @@
 CC=gcc
 
-.PHONY: clean
-
 all: make
 
 main.o: main.c
@@ -10,5 +8,6 @@ main.o: main.c
 make: main.o
 	$(CC) $^
 
+.PHONY: clean
 clean:
 	rm *.o a.out
