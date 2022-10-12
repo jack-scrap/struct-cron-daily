@@ -4,6 +4,9 @@ EXEC=a.out
 
 BUILDDIR=build
 
+PREFIX=/usr/local
+BINDIR=$(PREFIX)/bin
+
 .PHONY: all
 all: mk_build $(EXEC)
 
@@ -20,3 +23,11 @@ mk_build:
 .PHONY: clean
 clean:
 	rm $(BUILDDIR)/*.o $(EXEC)
+
+.PHONY: install
+install:
+	cp $(EXEC) $(BINDIR)
+
+.PHONY: uninstall
+uninstall:
+	rm $(BINDIR)/$(EXEC)
