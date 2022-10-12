@@ -1,14 +1,13 @@
 CC=gcc
 
 .PHONY: all
-all: make
+all: a.out
 
 main.o: main.c
 	$(CC) -c $< -o $@
 
-.PHONY: make
-make: main.o
-	$(CC) $^
+a.out: main.o
+	$(CC) $^ -o $@
 
 .PHONY: clean
 clean:
