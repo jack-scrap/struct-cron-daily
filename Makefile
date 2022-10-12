@@ -1,14 +1,16 @@
 CC=gcc
 
+EXEC=a.out
+
 .PHONY: all
-all: a.out
+all: $(EXEC)
 
 main.o: main.c
 	$(CC) -c $< -o $@
 
-a.out: main.o
+$(EXEC): main.o
 	$(CC) $^ -o $@
 
 .PHONY: clean
 clean:
-	rm *.o a.out
+	rm *.o $(EXEC)
