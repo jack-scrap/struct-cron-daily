@@ -1,6 +1,6 @@
 CC=gcc
 
-EXEC=a.out
+EXEC=cron_daily
 
 BUILDDIR=build
 
